@@ -4,6 +4,7 @@ import {
 	useContract,
 	useMetamask,
 	useContractWrite,
+	useDisconnect,
 } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 
@@ -21,6 +22,7 @@ export const StateContextProvider = ({ children }) => {
 
 	const address = useAddress();
 	const connect = useMetamask();
+	const disconnect = useDisconnect();
 
 	const publishCampaign = async (form) => {
 		try {
@@ -100,6 +102,7 @@ export const StateContextProvider = ({ children }) => {
 				address,
 				contract,
 				connect,
+				disconnect,
 				createCampaign: publishCampaign,
 				getCampaigns,
 				getUserCampaigns,
