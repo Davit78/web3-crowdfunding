@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-const CountBox = ({ title, value }) => {
+const CountBox = memo(({ title, value }) => {
 	return (
 		<div className="flex flex-col items-center w-[150px]">
 			<h4 className="font-epilogue font-bold text-[30px] text-white p-3 bg-[#1c1c24] rounded-t-[10px] w-full text-center truncate">
@@ -11,6 +11,6 @@ const CountBox = ({ title, value }) => {
 			</p>
 		</div>
 	);
-};
+});
 
 export default CountBox;

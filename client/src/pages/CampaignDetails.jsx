@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { useStateContext } from "../context";
@@ -27,14 +27,14 @@ const CampaignDetails = () => {
 		if (contract) fetchDonators();
 	}, [contract, address]);
 
-	const handleDonate = async () => {
+	const handleDonate = useCallback(async () => {
+		if (!amount) return;
 		setIsLoading(true);
-
 		await donate(state.pId, amount);
 
 		navigate("/");
 		setIsLoading(false);
-	};
+	}, [amount]);
 
 	return (
 		<div>

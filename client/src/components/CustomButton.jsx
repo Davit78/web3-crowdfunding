@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-const CustomButton = ({ btnType, title, handleClick, styles }) => {
+const CustomButton = memo(({ btnType, title, handleClick, styles }) => {
 	return (
 		<button
 			type={btnType}
@@ -10,6 +10,6 @@ const CustomButton = ({ btnType, title, handleClick, styles }) => {
 			{title}
 		</button>
 	);
-};
+});
 
 export default CustomButton;
